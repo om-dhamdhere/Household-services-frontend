@@ -1,10 +1,19 @@
 import React from "react";
 import axios from 'axios';
+import { withRouter } from "./withRouter";
 import {Component} from "react";
-import { Card, Container, Col, Row, Form } from "react-bootstrap";
-import {Link} from 'react-router-dom';
+import { Card, Container, Col, Row, Form, Button } from "react-bootstrap";
+// import {Link, useNavigate,RouterContext, useContext} from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
+// import { RouterContext } from 'react-router-dom';
+import { useContext,  RouterContext } from 'react';
+
+
+
+
 class Booking extends Component
 {
+    
     constructor(props)
     {
         super(props);
@@ -14,6 +23,25 @@ class Booking extends Component
             fname:"", lname:"", email:"", date:"", service:""
         }
     }
+
+    
+
+    handleClick = () => {
+        // const context = useContext(RouterContext);
+        const navigate = useNavigate();
+        navigate('/payments');
+      }
+
+    // useNavigate(url) {
+    //     this.props.history.push(url);
+    //   }
+
+    // handleClick=()=>{
+    //     setTimeout(()=>{
+    //         this.props.navigation('/payments');
+    //     }, 5000);
+        
+    // }
 
     changeHandler=(e)=>
     {
@@ -51,6 +79,13 @@ class Booking extends Component
     })
 }
 
+// redirectPayment(props)
+// {
+    
+//         this.props.navigate('/payments')
+    
+// }
+
         
             
            
@@ -69,6 +104,7 @@ class Booking extends Component
     
     render()
     {
+        
         return(
             <>
                 <Container className="mt-3 pt-5" >     
@@ -105,9 +141,11 @@ class Booking extends Component
                                     </Form.Select>
                                         <br/>
                                     <Form.Group className="mb-3" style={{alignItems:"center"}} >
-                                        {/* <Button variant="dark" type="submit" size="lg">Book</Button> */}
+                                        <Button variant="dark" type="submit" onClick={this.handleClick} size="lg">Book</Button>
+                                        <br/><br/>
+                                        
                                         <Link to="/payments" style={{alignItems:"center", fontSize:20}} class="btn btn-dark">
-                                            Book
+                                            Payment
                                         </Link>
                                     </Form.Group>                                   
                                 </Form>
@@ -120,5 +158,7 @@ class Booking extends Component
         )
     }
 }
+
+
 
 export default Booking;

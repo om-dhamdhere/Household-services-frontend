@@ -4,6 +4,7 @@ import "./Login.css";
 import logo from "./logo.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom';
 import { Card, Container, Col, Row, Form } from "react-bootstrap";
 
 class Signup extends React.Component
@@ -73,6 +74,11 @@ class Signup extends React.Component
 
                                     <Form.Group className="mb-3" style={{alignItems:"center"}} >
                                         <Button variant="dark" type="submit">Submit</Button>
+                                        <br/>
+                                        <br/>
+                                        <Link to="/login" style={{alignItems:"center", fontSize:14}} className="text-dark">
+                                            Back To Login
+                                        </Link>
                                     </Form.Group>
                                 </Form>
                             </Card.Body>
