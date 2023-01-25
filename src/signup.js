@@ -35,7 +35,7 @@ class Signup extends React.Component
     {
         console.log(this.state);
         e.preventDefault();
-        axios.post('http://localhost:5000/users/add', this.state)
+        axios.post('http://localhost:5000/users/add', this.state)  //adding user data to "users" collection
         .then(res => console.log(res.data))
         this.setState({fname:"", lname:"", email:"", password:""});
     }
@@ -80,6 +80,7 @@ class Signup extends React.Component
                                             Back To Login
                                         </Link>
                                     </Form.Group>
+                                    
                                 </Form>
                             </Card.Body>
                         </Card>

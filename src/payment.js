@@ -20,6 +20,7 @@ function Payment()
         price: 500,
     });
 
+    //function to display suucesful alert message
     const handleSuccess = () => {
         MySwal.fire({
           icon: 'success',
@@ -28,6 +29,7 @@ function Payment()
         });
       };
 
+      //function to display unsuucesful alert message
       const handleFailure = () => {
         MySwal.fire({
           icon: 'error',
@@ -41,13 +43,13 @@ function Payment()
       const response = await axios.post("http://localhost:5000/checkout",{token,service})
       console.log(response.status)
 
-      if(response.status===200)
+      if(response.status===200)  //call handleSuccess funnction if the response from server-side is 200
       {
           handleSuccess();
       }
 
       else{
-        handleFailure();
+        handleFailure();  //call handleFailure function
       }
     } 
 
@@ -117,7 +119,7 @@ function Payment()
               </tr>
               </tbody>
             </table>
-
+            {/* Respective code block from Stripe interface to perform the payment gateway functionality */}
             <StripeCheckout
                 stripeKey="pk_test_51MHMreSGvcAlF106CfhXkHOBXwb6laiHTFCHIVw9mKIHlJbXuZ4LfFWlUdMB1VfiOwE7AXSTbq2BAfihsafB9nJF00x1N8qmpw"
                 label="Pay Now"

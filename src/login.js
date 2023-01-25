@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import { withRouter, Link, Navigate} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import logo from "./logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
@@ -34,13 +34,13 @@ class Login extends React.Component {
     console.log(this.state);
     e.preventDefault();
     axios
-      .post("http://localhost:5000/users/login", this.state)
+      .post("http://localhost:5000/users/login", this.state)  //inserting data at respective backend database
       .then((res) => {
         if(res.data.message=="Login Succesfull!")
         {
             console.log("dksj")
             this.setState({ status: true });
-            document.cookie = "username=" + res.data.token;
+            document.cookie = "username=" + res.data.token;  //storing the username in a cookie to use it throughout our application
         }
 
         else{

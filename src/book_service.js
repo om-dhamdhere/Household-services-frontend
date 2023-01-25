@@ -1,12 +1,11 @@
 import React from "react";
 import axios from 'axios';
-import { withRouter } from "./withRouter";
 import {Component} from "react";
 import { Card, Container, Col, Row, Form, Button } from "react-bootstrap";
 // import {Link, useNavigate,RouterContext, useContext} from 'react-router-dom';
 import { useNavigate, Link} from 'react-router-dom';
 // import { RouterContext } from 'react-router-dom';
-import { useContext,  RouterContext } from 'react';
+
 
 
 
@@ -18,31 +17,15 @@ class Booking extends Component
     {
         super(props);
 
+        /* Fetching all the required attributes displayed on the form */
         this.state=
         {
             fname:"", lname:"", email:"", date:"", service:""
         }
     }
 
-    
 
-    handleClick = () => {
-        // const context = useContext(RouterContext);
-        const navigate = useNavigate();
-        navigate('/payments');
-      }
-
-    // useNavigate(url) {
-    //     this.props.history.push(url);
-    //   }
-
-    // handleClick=()=>{
-    //     setTimeout(()=>{
-    //         this.props.navigation('/payments');
-    //     }, 5000);
-        
-    // }
-
+    /* Setting all the data in key-value pairs */
     changeHandler=(e)=>
     {
         const key=e.target.name;
@@ -56,9 +39,9 @@ class Booking extends Component
     {
         console.log(this.state);
         e.preventDefault();
-        axios.post('http://localhost:5000/bookings/add', this.state)
+        axios.post('http://localhost:5000/bookings/add', this.state)  //used to add data at respective backend database
         .then(res => console.log(res.data))
-        this.setState({fname:"", lname:"", email:"", date:"", service:""});
+        this.setState({fname:"", lname:"", email:"", date:"", service:""});   //inserting all data in database
     }
 
     loadScript=(src)=>{
@@ -78,29 +61,6 @@ class Booking extends Component
 
     })
 }
-
-// redirectPayment(props)
-// {
-    
-//         this.props.navigate('/payments')
-    
-// }
-
-        
-            
-           
-        
-
-
-
-   
-
-    
-
-
-   
-
-   
     
     render()
     {
