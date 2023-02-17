@@ -52,17 +52,26 @@ class Login extends React.Component {
   };
 
   render() {
+
     const { history } = this.props;
     return (
       <>
         {this.state.status && (
           <Navigate to="/service" replace={true} />
         )}
-        <img src={logo} alt="logo" className="logo" />
-        <h1 className="login_heading">PT</h1>
-
-        <Container className="mt-3">
-          <Row className="mx-auto justify-content-center">
+        {/* <div style={{ backgroundImage:`url(${logo})`,backgroundRepeat:"no-repeat",backgroundSize:"contain", 
+    height:1000,width:1000
+    }}> */}
+        
+        {/* <h1 className="login_heading">PT</h1> */}
+        {/* <Col xs={2}>
+          <img src={logo} className="img-fluid justify-content-right" />
+        </Col> */}
+         <div className="mx-auto justify-content-center">
+         <img src={logo} alt="logo" className="logo" />
+         </div>
+        <Container className="mt-3 justify-content-center">
+          <Row className="mx-auto justify-content-center">        
             <Col xs={4}>
               <Card className="shadow-lg" variant="dark">
                 <Card.Header
@@ -131,6 +140,8 @@ class Login extends React.Component {
             </Col>
           </Row>
         </Container>
+       
+        {/* </div> */}
       </>
     );
   }

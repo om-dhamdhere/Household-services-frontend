@@ -11,7 +11,7 @@ const Card = (props) => {
 <div class="container">
     <div class="card-deck my-3" >
     <div class="card" >
-    <img style={{height:150, width:275}} src={props.imgsrc} class="card-img-top" alt="..." />
+    <img style={{height:150, width:300}} src={props.imgsrc} class="card-img-top" alt="..." />
 
       <div className="card-body text-dark" >
         <div class="card-body text-center">
@@ -26,7 +26,7 @@ const Card = (props) => {
    </div>
 
    
-   <Link to="/service_data" style={{fontSize:20}} class="btn btn-dark">
+   <Link to="/gender" style={{fontSize:20}} class="btn btn-dark">
           Learn More
     </Link>
 
